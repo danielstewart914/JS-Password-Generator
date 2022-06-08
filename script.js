@@ -21,39 +21,67 @@ var lowerCaseLetters = [  "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
 var numbers = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ];
 var specialCharacters = [ "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~" ];
 
-var length;
-
-var useUpper = true;
-var useLower = true;
-var useNumbers = true;
-var useSpecial = true;
-
-// prompt for password length
-// assign to length
-
-// validate length => 8 && length <= 128
-
-// prompt lowercase
-// assign to lower
-
-// prompt upper case 
-// assign to upper
-
-// prompt numbers
-// assign to numbers
-
-// prompt special characters
-// assign to special
-
-// validate at least one character type is selected
-
-
 // add generate password function
 function generatePassword () {
   
   // local variables
+  var characterSet = [];
   var generatedPassword = "";
 
+  var length;
 
-  return;
+  var useUpper;
+  var useLower;
+  var useNumbers;
+  var useSpecial;
+
+  // prompt for password length
+  // assign to length
+
+  if ( length >= 8 && length <= 128 ) {
+
+  // prompt lowercase
+  // assign to lower
+
+  // prompt upper case 
+  // assign to upper
+
+  // prompt numbers
+  // assign to numbers
+
+  // prompt special characters
+  // assign to special
+
+    if ( useUpper || useLower || useNumbers || useSpecial ) {
+
+      if ( useUpper ) {
+
+        characterSet = characterSet.concat( upperCaseLetters );
+
+      }
+      
+      if ( useLower ) {
+
+          characterSet = characterSet.concat( lowerCaseLetters );
+
+      }
+      
+      if ( useNumbers ) {
+
+          characterSet = characterSet.concat( numbers );
+
+      }
+      
+      if ( useSpecial ) {
+
+          characterSet = characterSet.concat( specialCharacters );
+
+      }
+
+      return generatedPassword;
+
+    }
+  
+  }
+
 }

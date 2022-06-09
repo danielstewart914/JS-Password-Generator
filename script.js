@@ -24,7 +24,7 @@ function generatePassword () {
   // password length
   var length;
 
-  length = window.prompt( "Please enter password length:\n\n- Must be at least 8 and no more than 128 characters long -", "" );
+  length = window.prompt( "Please enter password length:\n\nMust be at least 8 and no more than 128 characters long", "" );
 
   // check if user hit cancel button
   if ( length === null ) {
@@ -56,13 +56,13 @@ function generatePassword () {
   var useSpecial;
 
   // prompt user on which character sets they would like to use
-  useUpper = window.confirm( "Would you like to use Uppercase Letters?\n(OK-Yes Cancel-No)" );
+  useUpper = window.confirm( "Would you like to use Uppercase Letters?\n\nOK - Yes\nCancel - No" );
 
-  useLower = window.confirm( "Would you like to use Lowercase Letters?\n(OK-Yes Cancel-No)" );
+  useLower = window.confirm( "Would you like to use Lowercase Letters?\n\nOK - Yes\nCancel - No" );
 
-  useNumbers = window.confirm( "Would you like to use Numbers?\n(OK-Yes Cancel-No)" );
+  useNumbers = window.confirm( "Would you like to use Numbers?\n\nOK - Yes\nCancel - No" );
 
-  useSpecial = window.confirm( "Would you like to use Special Characters?\n(OK-Yes Cancel-No)" );
+  useSpecial = window.confirm( "Would you like to use Special Characters?\n\nOK - Yes\nCancel - No" );
 
   // validate that at least one type of character set has been selected
   if ( !useUpper && !useLower && !useNumbers && !useSpecial ) {

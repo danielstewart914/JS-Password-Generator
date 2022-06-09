@@ -34,61 +34,62 @@ function generatePassword () {
 
   length = window.prompt( "Please enter the length you would like for your password.", "" );
 
-  if ( length >= 8 && length <= 128 ) {
+  // validate length 
+  if ( length < 8 || length > 128 ) {
 
-    useUpper = window.confirm( "Would you like to use Uppercase Letters? (OK-Yes Cancel-No)" );
-
-    useLower = window.confirm( "Would you like to use Lowercase Letters? (OK-Yes Cancel-No)" );
-
-    useNumbers = window.confirm( "Would you like to use Numbers? (OK-Yes Cancel-No)" );
-
-    useSpecial = window.confirm( "Would you like to use Special Characters? (OK-Yes Cancel-No)" );
-
-    // validate that at least one type of character has been selected
-    if ( useUpper || useLower || useNumbers || useSpecial ) {
-
-      // build a character set from selected types
-      if ( useUpper ) {
-
-        characterSet = characterSet.concat( upperCaseLetters );
-
-      }
-      
-      if ( useLower ) {
-
-          characterSet = characterSet.concat( lowerCaseLetters );
-
-      }
-      
-      if ( useNumbers ) {
-
-          characterSet = characterSet.concat( numbers );
-
-      }
-      
-      if ( useSpecial ) {
-
-          characterSet = characterSet.concat( specialCharacters );
-
-      }
-
-      // select a random character and add it to the password until length is reached
-      for ( var i = 0; i < length; i++ ) {
-
-        generatedPassword += characterSet[ Math.floor( Math.random() * characterSet.length ) ];
-
-      }
-
-      return generatedPassword;
-
-    }
-
-    window.alert("You must select at least one type of character set.");
+    window.alert("Password must be at least 8 Characters and no more than 128 Characters.");
     return "Error - Try Again.";
   
   }
 
-  window.alert("Password must be at least 8 Characters and no more than 128 Characters.");
-  return "Error - Try Again.";
+  // prompt user on which character sets they would like to use
+  useUpper = window.confirm( "Would you like to use Uppercase Letters?\n(OK-Yes Cancel-No)" );
 
+  useLower = window.confirm( "Would you like to use Lowercase Letters?\n(OK-Yes Cancel-No)" );
+
+  useNumbers = window.confirm( "Would you like to use Numbers?\n(OK-Yes Cancel-No)" );
+
+  useSpecial = window.confirm( "Would you like to use Special Characters?\n(OK-Yes Cancel-No)" );
+
+  // validate that at least one type of character has been selected
+  if ( !useUpper && !useLower && !useNumbers && !useSpecial ) {
+
+    window.alert("You must select at least one character set.");
+    return "Error - Try Again.";
+
+  }
+
+  // build a character set from selected types
+  if ( useUpper ) {
+
+    characterSet = characterSet.concat( upperCaseLetters );
+
+  }
+  
+  if ( useLower ) {
+
+      characterSet = characterSet.concat( lowerCaseLetters );
+
+  }
+  
+  if ( useNumbers ) {
+
+      characterSet = characterSet.concat( numbers );
+
+  }
+  
+  if ( useSpecial ) {
+
+      characterSet = characterSet.concat( specialCharacters );
+
+  }
+
+  // select a random character and add it to the password until length is reached
+  for ( var i = 0; i < length; i++ ) {
+
+    generatedPassword += characterSet[ Math.floor( Math.random() * characterSet.length ) ];
+
+  }
+
+  return generatedPassword;
 }

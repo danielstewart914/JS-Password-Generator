@@ -13,15 +13,12 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-// variables
-
+// character sets 
 var upperCaseLetters = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
 var lowerCaseLetters = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
 var numbers = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ];
 var specialCharacters = [ "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~" ];
 
-// add generate password function
 function generatePassword () {
   
   // local variables
@@ -35,23 +32,17 @@ function generatePassword () {
   var useNumbers;
   var useSpecial;
 
-  // prompt for password length
-  // assign to length
+  length = window.prompt( "Please enter the length you would like for your password.", "" );
 
   if ( length >= 8 && length <= 128 ) {
 
-  // prompt lowercase
-  // assign to lower
+    useUpper = window.confirm( "Would you like to use Uppercase Letters? (OK-Yes Cancel-No)" );
 
-  // prompt upper case 
-  // assign to upper
+    useLower = window.confirm( "Would you like to use Lowercase Letters? (OK-Yes Cancel-No)" );
 
-  // prompt numbers
-  // assign to numbers
+    useNumbers = window.confirm( "Would you like to use Numbers? (OK-Yes Cancel-No)" );
 
-  // prompt special characters
-  // assign to special
-
+    useSpecial = window.confirm( "Would you like to use Special Characters? (OK-Yes Cancel-No)" );
 
     // validate that at least one type of character has been selected
     if ( useUpper || useLower || useNumbers || useSpecial ) {
@@ -91,7 +82,13 @@ function generatePassword () {
       return generatedPassword;
 
     }
+
+    window.alert("You must select at least one type of character set.");
+    return "Error - Try Again.";
   
   }
+
+  window.alert("Password must be at least 8 Characters and no more than 128 Characters.");
+  return "Error - Try Again.";
 
 }

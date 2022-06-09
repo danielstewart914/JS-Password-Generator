@@ -24,13 +24,28 @@ function generatePassword () {
   // password length
   var length;
 
-  length = window.prompt( "Please enter the length you would like for your password.", "" );
+  length = window.prompt( "Please enter password length:\n\n- Must be at least 8 and no more than 128 characters long -", "" );
 
-  // validate length 
+  // check if user hit cancel button
+  if ( length === null ) {
+
+    return "Operation canceled - Try again.";
+
+  }
+
+  // validate that length contains a number
+  if ( isNaN( length ) ) {
+
+    window.alert( "!! You must enter a number !!" );
+    return "Invalid input - Try again.";
+
+  }
+
+  // validate length meets requested criteria
   if ( length < 8 || length > 128 ) {
 
-    window.alert("Password must be at least 8 Characters and no more than 128 Characters.");
-    return "Error - Try Again.";
+    window.alert( "!! Password must be 8 - 128 characters in length !!" );
+    return "Invalid input - Try Again.";
   
   }
 
@@ -52,12 +67,12 @@ function generatePassword () {
   // validate that at least one type of character set has been selected
   if ( !useUpper && !useLower && !useNumbers && !useSpecial ) {
 
-    window.alert("You must select at least one character set.");
-    return "Error - Try Again.";
+    window.alert( "!! You must select at least one character set !!" );
+    return "Invalid selection - Try Again.";
 
   }
 
-  // set of characters to choose from
+  // set of characters to pick from
   var characterSet = [];
 
   // build a character set from selected types

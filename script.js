@@ -21,16 +21,8 @@ var specialCharacters = [ "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+"
 
 function generatePassword () {
   
-  // local variables
-  var characterSet = [];
-  var generatedPassword = "";
-
+  // password length
   var length;
-
-  var useUpper;
-  var useLower;
-  var useNumbers;
-  var useSpecial;
 
   length = window.prompt( "Please enter the length you would like for your password.", "" );
 
@@ -42,6 +34,12 @@ function generatePassword () {
   
   }
 
+  // booleans for user selections
+  var useUpper;
+  var useLower;
+  var useNumbers;
+  var useSpecial;
+
   // prompt user on which character sets they would like to use
   useUpper = window.confirm( "Would you like to use Uppercase Letters?\n(OK-Yes Cancel-No)" );
 
@@ -51,13 +49,16 @@ function generatePassword () {
 
   useSpecial = window.confirm( "Would you like to use Special Characters?\n(OK-Yes Cancel-No)" );
 
-  // validate that at least one type of character has been selected
+  // validate that at least one type of character set has been selected
   if ( !useUpper && !useLower && !useNumbers && !useSpecial ) {
 
     window.alert("You must select at least one character set.");
     return "Error - Try Again.";
 
   }
+
+  // set of characters to choose from
+  var characterSet = [];
 
   // build a character set from selected types
   if ( useUpper ) {
@@ -84,7 +85,9 @@ function generatePassword () {
 
   }
 
-  // select a random character and add it to the password until length is reached
+  var generatedPassword = "";
+
+  // select a random character and add it to the password string until length is reached
   for ( var i = 0; i < length; i++ ) {
 
     generatedPassword += characterSet[ Math.floor( Math.random() * characterSet.length ) ];

@@ -29,7 +29,7 @@ function generatePassword () {
   // check if user hit cancel button
   if ( length === null ) {
 
-    return "Operation canceled - Try again.";
+    return "!! Operation Canceled - Try again !!";
 
   }
 
@@ -37,7 +37,7 @@ function generatePassword () {
   if ( isNaN( length ) ) {
 
     window.alert( "!! You must enter a number !!" );
-    return "Invalid input - Try again.";
+    return "!! Invalid input - Try again !!";
 
   }
 
@@ -45,7 +45,7 @@ function generatePassword () {
   if ( length < 8 || length > 128 ) {
 
     window.alert( "!! Password must be 8 - 128 characters in length !!" );
-    return "Invalid input - Try Again.";
+    return "!! Invalid input - Try Again !!";
   
   }
 
@@ -68,7 +68,7 @@ function generatePassword () {
   if ( !useUpper && !useLower && !useNumbers && !useSpecial ) {
 
     window.alert( "!! You must select at least one character set !!" );
-    return "Invalid selection - Try Again.";
+    return "!! Invalid selection - Try Again !!";
 
   }
 

@@ -10,4 +10,4 @@ I then pick from that character set at random to build up the password and retur
 ### Deployed Application
 [Click here to view Application](https://danielstewart914.github.io/JS-Password-Generator/)
 
-![Screenshot](./images/js-password-generator-screenshot.png)
+![Screenshot](./assets/images/js-password-generator-screenshot.png)
